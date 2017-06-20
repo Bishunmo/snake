@@ -1,0 +1,6 @@
+C:\DESKTOP\ProgLearn\CSharpLearn\snake\Snake\Snake\bin\Debug\Snake.exe.config
+C:\DESKTOP\ProgLearn\CSharpLearn\snake\Snake\Snake\bin\Debug\Snake.exe
+C:\DESKTOP\ProgLearn\CSharpLearn\snake\Snake\Snake\bin\Debug\Snake.pdb
+C:\DESKTOP\ProgLearn\CSharpLearn\snake\Snake\Snake\obj\Debug\Snake.csprojResolveAssemblyReference.cache
+C:\DESKTOP\ProgLearn\CSharpLearn\snake\Snake\Snake\obj\Debug\Snake.exe
+C:\DESKTOP\ProgLearn\CSharpLearn\snake\Snake\Snake\obj\Debug\Snake.pdb
