@@ -15,16 +15,17 @@ namespace Snake
 
             HorizontalLine lineH1 = new HorizontalLine(0 ,78 ,0 ,'+');
             HorizontalLine lineH2 = new HorizontalLine(0, 78, 24, '+');
-            VerticalLine lineU1 = new VerticalLine(0, 24, 0, '|');
-            VerticalLine lineU2 = new VerticalLine(0, 24, 78, '|');
+            VerticalLine lineU1 = new VerticalLine(0, 24, 0, '+');
+            VerticalLine lineU2 = new VerticalLine(0, 24, 78, '+');
             lineH1.Draw();
             lineH2.Draw();
             lineU1.Draw();
             lineU2.Draw();
 
 
-            Point p1 = new Point(4, 5, '*');
-            p1.Draw();
+            Point p = new Point(4, 5, '*');
+            Snake snake = new Snake(p, 4, Direction.RIGHT);
+            snake.Draw();
 
             Console.ReadLine();
 
