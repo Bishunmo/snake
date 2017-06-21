@@ -21,7 +21,7 @@ namespace Snake
             this.sym = sym;
         }
 
-        public Point CreateFood()
+        public Point CreateFood() //рандомно кидаем еду на поле
         {
             int x = random.Next(2, mapWidth - 2);
             int y = random.Next(2, mapHeight - 2);

@@ -26,11 +26,11 @@ namespace Snake
         internal void Move() // передвижение
         {
             Point tail = pList.First();
-            pList.Remove(tail);
+            pList.Remove(tail); //убираем хвост
             Point head = GetNextPoint();
-            pList.Add(head);
+            pList.Add(head); //добавляем бошку
             
-            tail.Clear(); //удаление хвоста
+            tail.Clear(); //удаление хранимого хвоста
             head.Draw(); //добавляем голову со сдвигом
         }
 
@@ -40,6 +40,17 @@ namespace Snake
             Point nextPoint = new Point(head); //новая точка, копия головы
             nextPoint.Move(1, direction); // сдвиг в направлении
             return nextPoint;
+        }
+
+        internal bool IsHitTail() //проверка хвоста
+        {
+            var head = pList.Last();
+            for (int i = 0; i < pList.Count - 2; i++)
+            {
+                if (head.IsHit(pList[i]))
+                    return true;
+            }
+            return false;
         }
 
         public void HandleKey(ConsoleKey key)

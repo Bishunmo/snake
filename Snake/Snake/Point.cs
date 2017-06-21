@@ -30,7 +30,7 @@ namespace Snake
             sym = p.sym;
         }
 
-        public void Move (int offset, Direction direction)
+        public void Move (int offset, Direction direction) //смещение новой точки
         {
             if (direction == Direction.RIGHT)
             {
@@ -50,12 +50,12 @@ namespace Snake
             }
         }
 
-        public bool IsHit(Point p)
+        public bool IsHit(Point p) //проверка столкновения еда/стена
         {
             return p.x == this.x && p.y == this.y;
         }
 
-        public void Draw()
+        public void Draw() //рисуем
         {
             Console.SetCursorPosition(x, y);
             Console.Write(sym);

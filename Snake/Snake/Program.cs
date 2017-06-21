@@ -13,6 +13,9 @@ namespace Snake
         {
             Console.SetBufferSize(80, 25);
 
+            Walls walls = new Walls(80, 25); //создаем и рисуем стенки
+            walls.Draw();
+
             //рамка
             HorizontalLine lineH1 = new HorizontalLine(0 ,78 ,0 ,'+');
             HorizontalLine lineH2 = new HorizontalLine(0, 78, 24, '+');
@@ -23,28 +26,33 @@ namespace Snake
             lineU1.Draw();
             lineU2.Draw();
 
-            
+            //рисуем точки-змейки
             Point p = new Point(4, 5, '*');
             Snake snake = new Snake(p, 4, Direction.RIGHT);
             snake.Draw();
 
-            FoodCreator foodCreator = new FoodCreator(80, 25, '$');
-            Point food = foodCreator.CreateFood();
+            FoodCreator foodCreator = new FoodCreator(80, 25, '$'); //обозначаем, где появляется еда
+            Point food = foodCreator.CreateFood(); //создаем точку с едой
             food.Draw();
 
             while (true)
             {
-                if (snake.Eat(food))
+                if (walls.IsHit(snake) || snake.IsHitTail()) //проверка столкновения со стеной или хвостом
+                {
+                    break;
+                }
+
+                if (snake.Eat(food)) //проверка поедания
                 {
                     food = foodCreator.CreateFood();
-                    food.Draw();
+                    food.Draw(); 
                 }
-                else
+                else //если не едим то двигаемся
                 {
                     snake.Move();
                 }
 
-                Thread.Sleep(200);
+                Thread.Sleep(100);
 
                 if (Console.KeyAvailable)
                 {

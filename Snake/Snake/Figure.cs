@@ -18,5 +18,25 @@ namespace Snake
             }
         }
 
+        internal bool IsHit(Figure figure) //проверка столкновения фигур
+        {
+            foreach (var p in pList)
+            {
+                if (figure.IsHit(p))
+                    return true;
+            }
+            return false;
+        }
+
+        private bool IsHit(Point point) //проверка с точкой
+        {
+            foreach (var p in pList)
+            {
+                if (p.IsHit(point))
+                    return true;
+            }
+            return false;
+        }
+
     }
 }
