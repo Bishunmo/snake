@@ -16,11 +16,11 @@ namespace Snake
         {
         }
 
-        public Point (int x, int y, char sym)
+        public Point (int _x, int _y, char _sym)
         {
-            this.x = x;
-            this.y = y;
-            this.sym = sym;
+            x = _x;
+            y = _y;
+            sym = _sym;
         }
 
         public Point (Point p)
@@ -42,24 +42,24 @@ namespace Snake
             }
             else if (direction == Direction.UP)
             {
-                y = y + offset;
+                y = y - offset;
             }
             else if (direction == Direction.DOWN)
             {
-                y = y - offset;
+                y = y + offset;
             }
-        }
-
-        internal void Clear() //затирка точка при перемещении
-        {
-            sym = ' ';
-            Draw();
         }
 
         public void Draw()
         {
             Console.SetCursorPosition(x, y);
             Console.Write(sym);
+        }
+
+        public void Clear() //затирка точки при перемещении
+        {
+            sym = ' ';
+            Draw();
         }
 
         public override string ToString()

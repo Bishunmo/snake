@@ -13,7 +13,7 @@ namespace Snake
         {
             Console.SetBufferSize(80, 25);
 
-
+            //рамка
             HorizontalLine lineH1 = new HorizontalLine(0 ,78 ,0 ,'+');
             HorizontalLine lineH2 = new HorizontalLine(0, 78, 24, '+');
             VerticalLine lineU1 = new VerticalLine(0, 24, 0, '+');
@@ -23,62 +23,21 @@ namespace Snake
             lineU1.Draw();
             lineU2.Draw();
 
-
+            
             Point p = new Point(4, 5, '*');
             Snake snake = new Snake(p, 4, Direction.RIGHT);
             snake.Draw();
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
 
-
-            Console.ReadLine();
-
-            /*Point p1 = new Point(1,3,'*');
-            p1.Draw();
-
-            Point p2 = new Point(3,6,'#');
-            p2.Draw();*/
-
-            // LISTS
-            /*List<int> numList = new List<int>();
-
-            numList.Add(0);
-            numList.Add(1);
-            numList.Add(2);
-
-            int x = numList[0];
-            int y = numList[1];
-            int z = numList[2];
-
-            foreach(int i in numList)
+            while (true)
             {
-                Console.WriteLine(i);
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    snake.HandleKey(key.Key);
+                }
+                Thread.Sleep(100);
+                snake.Move();
             }
-            //numList.RemoveAt(0);
-
-            List<Point> pList = new List<Point>();
-            pList.Add(p1);
-            pList.Add(p2);*/
-
-            /*Draw(p2.x, p2.y, p2.sym);
-
-            int x2 = 4;
-            int y2 = 6;
-            char sym2 = '#';
-
-            Draw(x2, y2, sym2);*/
-
         }
-
     }
 }

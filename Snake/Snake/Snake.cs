@@ -10,15 +10,15 @@ namespace Snake
     {
         Direction direction;
 
-        public Snake(Point tail, int length, Direction direction)
+        public Snake(Point tail, int length, Direction _direction)
         {
-            this.direction = direction;
+            direction = _direction;
             pList = new List<Point>();
 
-            for (int i = 0; i<length; i++)
+            for (int i = 0; i < length; i++)
             {
                 Point p = new Point(tail);
-                p.Move(i, direction);
+                p.Move(i, this.direction);
                 pList.Add(p);
             }
         }
@@ -30,8 +30,9 @@ namespace Snake
             Point head = GetNextPoint();
             pList.Add(head);
 
-            tail.Clear(); //удаление хвоста
             head.Draw(); //добавляем голову со сдвигом
+            tail.Clear(); //удаление хвоста
+            
         }
 
         public Point GetNextPoint()
@@ -40,6 +41,18 @@ namespace Snake
             Point nextPoint = new Point(head); //новая точка, копия головы
             nextPoint.Move(1, direction); // сдвиг в направлении
             return nextPoint;
+        }
+
+        public void HandleKey(ConsoleKey key)
+        {
+            if (key == ConsoleKey.LeftArrow)
+                direction = Direction.LEFT;
+            else if (key == ConsoleKey.RightArrow)
+                direction = Direction.RIGHT;
+            else if (key == ConsoleKey.DownArrow)
+                direction = Direction.DOWN;
+            else if (key == ConsoleKey.UpArrow)
+                direction = Direction.UP;
         }
     }
 }
