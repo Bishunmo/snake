@@ -16,16 +16,6 @@ namespace Snake
             Walls walls = new Walls(80, 25); //создаем и рисуем стенки
             walls.Draw();
 
-            //рамка
-            HorizontalLine lineH1 = new HorizontalLine(0 ,78 ,0 ,'+');
-            HorizontalLine lineH2 = new HorizontalLine(0, 78, 24, '+');
-            VerticalLine lineU1 = new VerticalLine(0, 24, 0, '+');
-            VerticalLine lineU2 = new VerticalLine(0, 24, 78, '+');
-            lineH1.Draw();
-            lineH2.Draw();
-            lineU1.Draw();
-            lineU2.Draw();
-
             //рисуем точки-змейки
             Point p = new Point(4, 5, '*');
             Snake snake = new Snake(p, 4, Direction.RIGHT);
@@ -60,6 +50,31 @@ namespace Snake
                     snake.HandleKey(key.Key);
                 }
             }
+
+            WriteGameOver();
+            Console.ReadLine();
         }
-    }
+
+
+        static void WriteGameOver()
+        {
+            int xOffset = 25;
+            int yOffset = 8;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.SetCursorPosition(xOffset, yOffset++);
+            WriteText("============================", xOffset, yOffset++);
+            WriteText("И Г Р А    О К О Н Ч Е Н А", xOffset + 1, yOffset++);
+            yOffset++;
+            WriteText("Автор: Bishunmo", xOffset + 7, yOffset++);
+            //WriteText("Специально для GeekBrains", xOffset + 1, yOffset++);
+            WriteText("============================", xOffset, yOffset++);
+        }
+
+        static void WriteText(String text, int xOffset, int yOffset)
+        {
+            Console.SetCursorPosition(xOffset, yOffset);
+            Console.WriteLine(text);
+        }
+
+}
 }
