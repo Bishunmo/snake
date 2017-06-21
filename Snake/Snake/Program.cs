@@ -24,6 +24,8 @@ namespace Snake
             FoodCreator foodCreator = new FoodCreator(80, 25, '$'); //обозначаем, где появляется еда
             Point food = foodCreator.CreateFood(); //создаем точку с едой
             food.Draw();
+            food = foodCreator.CreateFood(); //создаем точку с едой
+            food.Draw();
 
             while (true)
             {
@@ -35,7 +37,9 @@ namespace Snake
                 if (snake.Eat(food)) //проверка поедания
                 {
                     food = foodCreator.CreateFood();
-                    food.Draw(); 
+                    food.Draw();
+                    food = foodCreator.CreateFood();
+                    food.Draw();
                 }
                 else //если не едим то двигаемся
                 {
@@ -66,7 +70,6 @@ namespace Snake
             WriteText("И Г Р А    О К О Н Ч Е Н А", xOffset + 1, yOffset++);
             yOffset++;
             WriteText("Автор: Bishunmo", xOffset + 7, yOffset++);
-            //WriteText("Специально для GeekBrains", xOffset + 1, yOffset++);
             WriteText("============================", xOffset, yOffset++);
         }
 
