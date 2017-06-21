@@ -50,6 +50,12 @@ namespace Snake
             }
         }
 
+        internal void Clear() //затирка точка при перемещении
+        {
+            sym = ' ';
+            Draw();
+        }
+
         public void Draw()
         {
             Console.SetCursorPosition(x, y);
