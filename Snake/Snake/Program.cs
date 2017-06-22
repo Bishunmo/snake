@@ -24,8 +24,6 @@ namespace Snake
             FoodCreator foodCreator = new FoodCreator(80, 25, '$'); //обозначаем, где появляется еда
             Point food = foodCreator.CreateFood(); //создаем точку с едой
             food.Draw();
-            food = foodCreator.CreateFood(); //создаем точку с едой
-            food.Draw();
 
             while (true)
             {
@@ -36,8 +34,6 @@ namespace Snake
 
                 if (snake.Eat(food)) //проверка поедания
                 {
-                    food = foodCreator.CreateFood();
-                    food.Draw();
                     food = foodCreator.CreateFood();
                     food.Draw();
                 }
